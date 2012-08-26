@@ -1,3 +1,16 @@
+/**
+ * @file CatPictureApp.cpp
+ * A simple app to change colors using Cinder.
+ *
+ * @author Tanmay Mathur
+ * @date 2012-08-26
+ *
+ * @note This file is (c) 2012. It is licensed under the 
+ * CC BY 3.0 license (http://creativecommons.org/licenses/by/3.0/),
+ * which means you are free to use, share, and remix it as long as you
+ * give attribution. Commercial uses are allowed.
+ */
+
 #include "cinder/app/AppBasic.h"
 #include "cinder/gl/gl.h"
 
@@ -12,18 +25,18 @@ class CatPictureApp : public AppBasic {
 	void update();
 	void draw();
 private:
-	float change;
-	float change1;
-	float change2;
+	float Red;//Variable for Red
+	float Green;//Variable for Green
+	float Blue;//Variable for Blue
 	int i;
 };
 
 void CatPictureApp::setup()
 {
 	i=0;
-	change=0.0f;
-	change1=0.5f;
-	change2=1.0f;
+	Red=0.0f;
+	Green=0.5f;
+	Blue=1.0f;
 }
 
 void CatPictureApp::mouseDown( MouseEvent event )
@@ -32,16 +45,24 @@ void CatPictureApp::mouseDown( MouseEvent event )
 
 void CatPictureApp::update()
 {
-	i++;
-	if(change<=1)change=change+.01f; else {change=change/(2*i);}
-if(change1<=1)change1=change1+.01f;else {change1=change1/(2*i);}
-if(change2>=0)change2=change2-.01f;else {change2=change2/(2*i);}
+	if(Red<=1)
+		Red=Red+.01f; 
+	else 
+		Red=0.0f;
+	if(Green<=1)
+		Green=Green+.01f;
+	else 
+		Green=0.5f;
+	if(Blue>=0)
+		Blue=Blue-.01f;
+	else 
+		Blue=1.0f;
 }
 
 void CatPictureApp::draw()
 {
 	// clear out the window with black
-	gl::clear( Color( change, change1,change2) ); 
+	gl::clear( Color( Red, Blue,Green) ); 
 }
 
 CINDER_APP_BASIC( CatPictureApp, RendererGl )
