@@ -28,7 +28,6 @@ private:
 	float Red;//Variable for Red
 	float Green;//Variable for Green
 	float Blue;//Variable for Blue
-	int i;
 };
 
 void CatPictureApp::setup()
