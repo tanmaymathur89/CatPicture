@@ -33,7 +33,6 @@ private:
 
 void CatPictureApp::setup()
 {
-	i=0;
 	Red=0.0f;
 	Green=0.5f;
 	Blue=1.0f;
